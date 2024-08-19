@@ -5,14 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class StartMeny : MonoBehaviour
 {
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
    public void StartMenu()
     {
         SceneManager.LoadScene("Level 1");

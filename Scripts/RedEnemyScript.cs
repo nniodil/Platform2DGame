@@ -12,8 +12,6 @@ public class RedEnnemyScript : MonoBehaviour
     public int health;
     
     
-
-    // Start is called before the first frame update
     void Start()
     {
         currentPatrolPoint = patrolPoints[currentPatrolPointIndex];
@@ -27,7 +25,6 @@ public class RedEnnemyScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * Time.deltaTime * speed);
@@ -42,6 +39,7 @@ public class RedEnnemyScript : MonoBehaviour
             {
                 currentPatrolPointIndex = 0;
             }
+            
             currentPatrolPoint = patrolPoints[currentPatrolPointIndex];
             
             if(gameObject.tag == "demon")
@@ -58,9 +56,6 @@ public class RedEnnemyScript : MonoBehaviour
                 }
             }
             
-
-
-
             if(gameObject.tag == "enemy")
             {
                 if (currentPatrolPoint.position.x < transform.position.x)
@@ -74,19 +69,11 @@ public class RedEnnemyScript : MonoBehaviour
                     GetComponent<SpriteRenderer>().flipX = false;
                 }
             }
-            
-        }
-
-        
-            
-        
+        }  
     }
-
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("bullets"))
         {
             health -= 5;
@@ -98,12 +85,5 @@ public class RedEnnemyScript : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-
-       
-
-
-
     }
-
-    
 }
